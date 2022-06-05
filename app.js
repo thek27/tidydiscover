@@ -7,6 +7,7 @@ const SpotifyWebApi = require("spotify-web-api-node");
 const fs = require("fs");
 const os = require("os");
 const path = require("path");
+const opn = require("opn");
 
 const envFilePath = path.resolve(__dirname, ".env");
 const readEnvVars = () => fs.readFileSync(envFilePath, "utf-8").split(os.EOL);
@@ -137,6 +138,7 @@ app.get("/account", ensureAuthenticated, function (req, res) {
 
 app.listen(port, function () {
   console.log("App is listening on port " + port);
+  opn("http:/localhost:" + port);
 });
 
 // Simple route middleware to ensure user is authenticated.
