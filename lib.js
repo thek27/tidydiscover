@@ -63,7 +63,7 @@ const copyPlaylist = function (sourceId, destId, callback = null) {
     spotifyApi.removeTracksFromPlaylist(destId, tracks).then(
       function () {
         let tracks = items.map(({ id }) => id);
-        spotifyApi.addTracksToPlaylist(destId, tracks,{position:0}).then(
+        spotifyApi.addTracksToPlaylist(destId, tracks, { position: 0 }).then(
           function () {
             console.log("Added " + tracks.length + " tracks to playlist!");
             if (callback) callback();
